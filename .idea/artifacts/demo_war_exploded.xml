@@ -7,6 +7,11 @@
         <element id="directory" name="classes">
           <element id="module-output" name="demo" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Spring-4.3.10.RELEASE" />
+          <element id="file-copy" path="/home/nxy/下载/mysql-connector-java-5.1.44/mysql-connector-java-5.1.44-bin.jar" />
+          <element id="file-copy" path="/home/nxy/下载/fastjson-1.2.38.jar" />
+        </element>
       </element>
     </root>
   </artifact>
