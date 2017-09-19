@@ -17,15 +17,15 @@
 <table class="table">
     <thead>
     <tr>
-        <th>#</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Username</th>
+        <th>id</th>
+        <th>username</th>
+        <th>age</th>
+        <th>description</th>
     </tr>
     </thead>
     <tbody id="body">
     <tr style="display:none" id="templateTr">
-        <th scope="row" class="_id"></th>
+        <th  scope="row" class="_id"></th>
         <td class="_username"></td>
         <td class="_age"></td>
         <td class="_description"></td>
@@ -46,15 +46,15 @@
         var body = $("#body");
         body.empty();
         $.post("/getUsers.do", "", function(result) {
-            result.each(function(index, element) {
-                var a = tr.copy();
-                a.style = "";
-                element.each(function(name, value) {
-                    a.child("_" + name).text = value;
+            $.each(result, function(idx, row) {
+                var a = tr.clone();
+                a.attr("style", "display:block");
+                $.each(row, function(name, element) {
+                    a.find("._" + name).text(element);
                 });
-                body.add(a);
+                body.append(a);
             });
-        },"text");
+        },"json");
         return false;
     });
 </script>
